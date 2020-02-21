@@ -1,0 +1,104 @@
+#to get the list of api command is
+kubectl api-versions
+
+#to get the list of resources
+kubectl api-resources
+
+#create my first pod
+kubectl run --generator=run-pod/v1 --image=nginx mynewpod
+
+#delet the pod
+kubectl delete pod <nameof your pod>
+
+#describing a pod 
+kubectl describe pod <nameof your pod>
+
+#watch pods
+kubectl get pods -w
+
+$wide output
+kubectl get pods -o wide
+
+#how to ssh
+ssh -i /root/.ssh/id_rsa admin@<node-publicip> 
+
+#creating deployment
+kubectl create deploy mydemodep --image=nginx
+
+#scaling the deployment
+kubectl scale deploy mydemodep --replicas=4
+
+#watch pods for the deploy
+kubectl get pods -w
+
+#delete a deployment
+kubectl delete deploy mydemodep
+
+#Create a ClusterIP service for the deployment
+kubectl expose deployment mydemodep --type=ClusterIP --port=80
+
+#Create a nodeport service for the deployment
+kubectl expose deployment mydemodep --type=NodePort --port=80
+
+#list the service
+kubectl get services
+
+#Create a nodeport service for the deployment
+kubectl expose deployment mydemodep --type=LoadBalancer --port=80
+
+#creating an object via the yaml file
+kubectl create -f <filename>
+
+#Deleting the object
+kubectl delete -f <filename>
+
+#editing a deployment
+kubectl edit deploy <deployname>
+change things as you require
+
+#updating a deployent
+kubectl set image deployment/webapp webapp1=vijaytrainer/myapache:1.2 --record
+
+#rollout history
+kubectl rollout history deploy/webapp
+
+#undo deployment
+kubectl rollout undo deploy/webapp --to-revision=1
+
+kubectl get deploy -w
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
